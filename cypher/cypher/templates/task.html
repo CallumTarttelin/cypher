@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %} Decipher This {% endblock %}
+
+{% block content %}
+    <script async defer src="{% static "js/submit.js" %}"></script>
+    <div id="task">
+        <h1>{{ type }} cypher</h1>
+        {% block cyphertext %}{% endblock %}
+        <label>
+            Answer:
+            <input id="answer" type="text" />
+        </label>
+        <button id="submit">Submit</button>
+        <p id="message"></p>
+    </div>
+{% endblock %}
