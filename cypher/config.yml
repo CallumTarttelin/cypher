@@ -1,3 +1,11 @@
-- hello
-- example
-- word
+tasks:
+  - cypher: caesar
+    start: hello
+    key: 1
+  - cypher: caesar
+    start: example
+    key: 1
+  - cypher: caesar
+    start: word
+    key: 1
+complete_text: You won

@@ -1,0 +1,27 @@
+body {
+    background-color: #222;
+    font-family: "JetBrains Mono NL", Hack, monospace;
+    color: green;
+}
+
+#task {
+    margin-top: 5em;
+    width: max-content;
+    display: block;
+    margin-left: 50%;
+    margin-right: 50%;
+    transform: translateX(-50%);
+}
+
+.failure {
+    color: red;
+}
+
+.success {
+    color: green;
+}
+
+code {
+    font-size: 2em;
+}
+

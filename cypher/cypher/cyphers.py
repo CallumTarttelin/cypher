@@ -1,9 +1,7 @@
 from abc import ABC, abstractmethod
-
 from importlib import import_module
-
-ALPHABET = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm',
-            'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z']
+from string import ascii_lowercase as ALPHABET
+from typing import Any, Dict, Callable
 
 
 def validate(initial: str, answer: str, cypher: str, *args) -> bool:
@@ -30,11 +28,24 @@ class Caesar(Cypher):
             index = (ALPHABET.index(c) + self.shift) % 26
             return ALPHABET[index]
 
-        return ''.join(list(map(inner, text)))
+        return ''.join(map(inner, text))
 
     def decypher(self, text: str) -> str:
         def inner(c: str) -> str:
             index = (ALPHABET.index(c) - self.shift) % 26
             return ALPHABET[index]
 
-        return ''.join(list(map(inner, text)))
+        return ''.join(map(inner, text))
+
+
+def caesar(text: str, shift: int) -> str:
+    def inner(c: str) -> str:
+        index = (ALPHABET.index(c) + shift) % 26
+        return ALPHABET[index]
+
+    return ''.join(map(inner, text))
+
+
+CYPHERS: Dict[str, Callable[[str, Any], str]] = {
+    "caesar": caesar
+}
